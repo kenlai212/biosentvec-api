@@ -1,0 +1,4 @@
+scipy==1.13.0
+nltk==3.8.1
+Flask==3.0.3
+sent2vec @ git+https://github.com/epfml/sent2vec.git
