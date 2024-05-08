@@ -2,13 +2,20 @@ import nltk
 from nltk import word_tokenize
 from nltk.corpus import stopwords
 from string import punctuation
-#import sent2vec
+import sent2vec
 
-nltk.download('stopwords')
-nltk.download('punkt')
+try:
+    nltk.data.find('tokenizers/stopwords')
+except LookupError:
+    nltk.download('stopwords')
+
+try:
+    nltk.data.find('tokenizers/punkt')
+except LookupError:
+    nltk.download('punkt')
 
 model_path = "BioSentVec_PubMed_MIMICIII-bigram_d700.bin"
-#model = sent2vec.Sent2vecModel()
+model = sent2vec.Sent2vecModel()
 try:
     model.load_model(model_path)
 except Exception as e:
@@ -26,8 +33,8 @@ def preprocessSentence(text):
     return ' '.join(tokens)
 
 
-def getVector(sentence):
-    #vector = model.embed_sentence(sentence)
+def getVector(preppedSentence):
+    #vector = model.embed_sentence(preppedSentence)
     #return vector
     return [0.001, 0.002, 0.003]
 

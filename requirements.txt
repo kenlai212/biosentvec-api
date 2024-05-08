@@ -1,3 +1,4 @@
-nltk==3.8.1
-Flask==3.0.3
+nltk
+Flask
+python-dotenv
 sent2vec @ git+https://github.com/epfml/sent2vec.git

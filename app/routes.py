@@ -18,13 +18,13 @@ def getVectorEmbedding():
         abort(400, e)
     
     try:
-        sentence = util.preprocessSentence(body["sentence"])
+        preppedSentence = util.preprocessSentence(body["sentence"])
     except Exception as e:
          print(e)
          abort(500, "Cannot process sentence")
 
     try:    
-        vector = util.getVector(sentence)
+        vector = util.getVector(preppedSentence)
     except Exception as e:
          print(e)
          abort(500, "Cannot get vector")
