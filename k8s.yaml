@@ -1,31 +1,31 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: flask-sample
+  name: biosentvec-api
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: flask-sample
+      app: biosentvec-api
   template:
     metadata:
       labels:
-        app: flask-sample
+        app: biosentvec-api
     spec: 
       containers:
-      - name: flask-sample
-        image: kenlai212/flask-sample:latest
+      - name: biosentvec-api
+        image: kenlai212/biosentvec-api:latest
         ports:
         - containerPort: 5000
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: flask-sample-service
+  name: biosentvec-api-service
 spec:
   type: LoadBalancer
   ports:
   - port: 80
     targetPort: 5000
   selector:
-    app: flask-sample
+    app: biosentvec-api
