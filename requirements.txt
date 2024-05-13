@@ -1,4 +1,4 @@
 nltk
 Flask
 python-dotenv
-sent2vec @ git+https://github.com/epfml/sent2vec.git
+#sent2vec @ git+https://github.com/epfml/sent2vec.git

@@ -2,24 +2,16 @@ import nltk
 from nltk import word_tokenize
 from nltk.corpus import stopwords
 from string import punctuation
-import sent2vec
+#import sent2vec
 
-try:
-    nltk.data.find('tokenizers/stopwords')
-except LookupError:
-    nltk.download('stopwords')
-
-try:
-    nltk.data.find('tokenizers/punkt')
-except LookupError:
-    nltk.download('punkt')
-
+'''
 model_path = "BioSentVec_PubMed_MIMICIII-bigram_d700.bin"
 model = sent2vec.Sent2vecModel()
 try:
     model.load_model(model_path)
 except Exception as e:
     print(e)
+'''
 
 stop_words = set(stopwords.words('english'))
 def preprocessSentence(text):
