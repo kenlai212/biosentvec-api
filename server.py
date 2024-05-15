@@ -1,5 +1,6 @@
 from flask import Flask, request, abort
 import util as util
+import json
 
 app = Flask(__name__)
 
@@ -30,7 +31,11 @@ def getVectorEmbedding():
          print(e)
          abort(500, "Cannot get vector")
 
-    return (vector)
+    
+    response_obj = {"sentence":body["sentence"], "prppedSengence":preppedSentence, "vector":util.convertArrayToList(vector[0])}
+    response = json.dumps(response_obj)
+    
+    return (response)
 
 
 if __name__ == "__main__":

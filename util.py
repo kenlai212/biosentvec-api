@@ -3,7 +3,7 @@ from nltk import word_tokenize
 from nltk.corpus import stopwords
 from string import punctuation
 import sent2vec
-
+import numpy as np
 
 model_path = "BioSentVec_PubMed_MIMICIII-bigram_d700.bin"
 model = sent2vec.Sent2vecModel()
@@ -34,3 +34,8 @@ def getVector(preppedSentence):
 def validateGetVectorEmbedding(body):
     if body.get("sentence") is None:
         raise Exception("sentence is mandatory")
+
+
+def convertArrayToList(array):
+    arr1 = np.array(array).tolist()
+    return arr1
